@@ -1,0 +1,16 @@
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.2.2
+torchvision==0.17.2
+accelerate==1.5.2
+absl-py==2.5.0
+diffusers==0.32.2
+lpips==0.1.4
+ml-collections==1.1.0
+mmengine==0.10.7
+numpy==1.24.3
+peft==0.9.0
+Pillow==11.1.0
+safetensors==0.5.3
+transformers==4.50.1
+tqdm==4.65.0
+wandb==0.28.1
