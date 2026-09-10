@@ -9,13 +9,13 @@ PPR is a perceptual reweighting method for step-wise preference optimization of 
 For winner and loser transitions j in {w, l}, the base objective uses the clipped policy/reference likelihood ratio
 
 ```math
-r_j = \operatorname{clip}\left(\exp(\log p_\theta^j - \log p_{\mathrm{ref}}^j), 1-\epsilon, 1+\epsilon\right)
+r_j = \mathrm{clip}\left(\exp(\log p_\theta^j - \log p_{\mathrm{ref}}^j),\ 1-\epsilon,\ 1+\epsilon\right)
 ```
 
 and
 
 ```math
-L_{\mathrm{base}} = \operatorname{softplus}\left[-\beta(\log r_w - \log r_l)\right].
+L_{\mathrm{base}} = \mathrm{softplus}\left[-\beta(\log r_w - \log r_l)\right].
 ```
 
 The winner and loser share the same current latent, timestep, and prompt. During rollout, candidate-specific predicted-clean latents are decoded and scored by the step-aware preference model. The best and worst candidates form a pair, which is retained when their two-way softmax probability gap exceeds the configured threshold.
@@ -23,7 +23,7 @@ The winner and loser share the same current latent, timestep, and prompt. During
 For each retained pair,
 
 ```math
-d = \operatorname{sg}\left[\operatorname{LPIPS}(I_w^{x_0}, I_l^{x_0})\right],
+d = \mathrm{sg}\left[\mathrm{LPIPS}(I_w^{x_0}, I_l^{x_0})\right],
 \qquad L_{\mathrm{PPR}} = w(d)L_{\mathrm{base}},
 ```
 
